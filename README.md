@@ -1,14 +1,19 @@
 # Project
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+This repository contains benchmarking data and sample inputs for Accelerated DFT.
 
-As the maintainer of this project, please make a few updates:
+- [benchmarks](./benchmarks)
+  - Geometries of 329 molecules comprising the test set (geometries.tar.gz)
+  - Accelerated-DFT input files and settings used to run calculations on the test set [input_spe-m062x.ipynb](./benchmarks/input_spe-m062x.ipynb) , [input_spe-wb97x.ipynb](./benchmarks/input_spe-wb97x.ipynb)
+  - Accelerated-DFT output files for the test set using both M06-2X and wB97x functionals  (m062x_results.tar.gz , wb97x_results.tar.gz)
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+- [samples](./samples)
+  - single point energy example input [spe.ipynb](./samples/bomd.ipynb)
+  - single point force example input [spf.ipynb](./samples/bomd.ipynb)
+  - geometry optimization example input [go.ipynb](./samples/bomd.ipynb)
+  - full Hessian example input [fh.ipynb](./samples/bomd.ipynb)
+  - Born-Oppenheimer molecular dynamics example input [bomd.ipynb](./samples/bomd.ipynb)
+
 
 ## Contributing
 
