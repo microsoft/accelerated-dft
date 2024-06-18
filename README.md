@@ -2,7 +2,7 @@
 
 Accelerated DFT is a cloud-native, GPU-accelerated DFT program for molecular systems engineered by Microsoft offered through [Azure Quantum Elements](https://quantum.microsoft.com/en-us/quantum-elements/product-overview). 
 
-This repository contains benchmarking data and sample inputs for Accelerated DFT as detailed in this [preprint]().
+This repository contains benchmarking data and sample inputs for Accelerated DFT as detailed in this [preprint](https://arxiv.org/abs/2406.11185).
 
 - [benchmarks](./benchmarks)
   - Geometries of 329 molecules comprising the test set (geometries.tar.gz)
@@ -16,7 +16,7 @@ This repository contains benchmarking data and sample inputs for Accelerated DFT
   - full Hessian example input [fh.ipynb](./samples/bomd.ipynb)
   - Born-Oppenheimer molecular dynamics example input [bomd.ipynb](./samples/bomd.ipynb)
 
-The sameples included in this project is for reference only. You need an active Accelerated DFT service (which supplies you the access key) to run the samples. 
+The sameples included in this project are for reference only. You need an active Accelerated DFT service (which supplies you the access key) to run the samples. 
 
 If you are interested in trying out Accelerated DFT, please [sign up](https://smt.microsoft.com/en-US/AQEPrivatePreviewSignup/) for private preview of Azure Quantum Elements.
 
