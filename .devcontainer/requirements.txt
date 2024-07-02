@@ -1,0 +1,5 @@
+azure-quantum
+pyscf
+numpy
+pyscf-properties @ git+https://github.com/pyscf/properties@master
+pint # package for converting unit in tools.heat_of_formation.py
