@@ -1,0 +1,21 @@
+name: adft
+channels:
+  - pyscf
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - ase
+  - rdkit
+  - py3dmol
+  - jupyterlab_widgets
+  - pint # for converting the energy unit
+  - ipykernel # Make kernel discoverable in Jupyter lab
+  - ipywidgets # Provide interactive widgets; pinned to match the version of the `jupyterlab` base environment
+  - nglview # Visualizing atomic structures; pinned to match the version of the `jupyterlab` base environment
+  - matplotlib
+  - pip>=22
+  - pip:
+    - azure-quantum
+    - pyscf ==2.4
+    - pyscf-properties @ git+https://github.com/pyscf/properties@master
