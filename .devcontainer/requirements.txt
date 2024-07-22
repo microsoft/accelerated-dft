@@ -1,6 +1,13 @@
 azure-quantum
-pyscf
-numpy
+pyscf ==2.4
 pyscf-properties @ git+https://github.com/pyscf/properties@master
-pint # package for converting unit in tools.heat_of_formation.py
+numpy
+ase
 rdkit
+py3dmol
+jupyterlab_widgets
+pint # for converting the energy unit
+ipykernel # Make kernel discoverable in Jupyter lab
+ipywidgets # Provide interactive widgets; pinned to match the version of the `jupyterlab` base environment
+nglview # Visualizing atomic structures; pinned to match the version of the `jupyterlab` base environment
+matplotlib
