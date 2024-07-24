@@ -4,7 +4,7 @@ Create a Codespace from this repository, we will submit calculations using the C
 Alternatively, if you prefer working on your laptop, create a python environment using the environment file provided `conda env create -f ./fomms-workshop/environment.yml`
 
 ## Examples
-We will run Accelerated DFT in the notebooks provided, these show some of the tasks and properties that can be computed with Accelerated DFT. All molecules and analysis tools required are also provided.
+We will run the notebooks provided, these show some of the tasks and properties that can be computed with Accelerated DFT. All molecules and analysis tools required are also provided.
 Together, we will run the following examples:     
 
 1-FOMMS_spe.ipynb ('spe' single point energy calculation)
