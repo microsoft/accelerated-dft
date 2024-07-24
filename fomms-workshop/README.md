@@ -13,7 +13,12 @@ We will run the following examples:
 
 3-FOMMS_fh_IR.ipynb ('fh' full hessian calculation)
 
+To run these examples, use the 'connection string' provided to you and insert in the appropriate cell in the notebook. This allows you to connect to the Accelerated DFT service.
+
+
 These examples may be run after the workshop and adapted for you to explore functionality:    
 E-FOMMS_go_ts.ipynb
 
 E-FOMMS_spe_FL172.ipynb
+
+Further examples are provided in the Accelerated-DFT repository /samples
