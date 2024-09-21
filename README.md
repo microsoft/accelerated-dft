@@ -16,7 +16,7 @@ This repository contains benchmarking data and sample inputs for Accelerated DFT
   - full Hessian example input [fh.ipynb](./samples/bomd.ipynb)
   - Born-Oppenheimer molecular dynamics example input [bomd.ipynb](./samples/bomd.ipynb)
 
-The sameples included in this project are for reference only. You need an active Accelerated DFT service (which supplies you the access key) to run the samples. 
+The samples included in this project are for reference only. You need an active Accelerated DFT service (which supplies you the access key) to run the samples. 
 
 If you are interested in trying out Accelerated DFT, please [sign up](https://smt.microsoft.com/en-US/AQEPrivatePreviewSignup/) for private preview of Azure Quantum Elements.
 
