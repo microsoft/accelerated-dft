@@ -1,42 +1,8 @@
-# Examples  
-
-Accelerated DFT jobs can be submitted directly from the Azure Portal, by uploading submission notebooks to 'Notebooks' section. 
-Jobs can also be submitted from a local environment, such as your own laptop. To do this, a local conda environment must first be set up using the [env.yaml](./env.yaml) file provided. On the command line enter `conda env create --file env.yaml` to create the conda environment 'madft', this will take a few minutes but only needs to be done once. When submitting jobs using the notebooks below, make sure to select kernel 'madft' to allow the notebook to use this environment. If submitting via a Python script rather than a notebook (e.g. [dft_job.py](./dft_job.py)), activate the environment before running the script `conda activate madft`.  
-
-## Simple First Jobs  
-Simple first jobs can be submitted using the Python script [dft_job.py](./dft_job.py) or the notebook [Submit_spe.ipynb](./Submit_spe.ipynb).
-
-[dft_job.py](./dft_job.py) - Python script for single point energy (spe)
-
-[Submit_spe.ipynb](./Submit_spe.ipynb) - simple energy (spe) calculation.
-
-[Submit_spe_with_xyz.ipynb](./Submit_spe_with_xyz.ipynb) - same simple energy calculation but geometry input is in the form of an xyz file.
-
-[Submit_spf.ipynb](./Submit_spf.ipynb) - forces (spf) calculation.
-
-[Submit_go.ipynb](./Submit_go.ipynb) - geometry optimization (go).
-
-[Submit_fh.ipynb](./Submit_fh.ipynb) - full hessian (fh) calculation.
-
-[Submit_bomd.ipynb](./Submit_bomd.ipynb) - BOMD simulation.
-
-[Submit_Solvent_PCM.ipynb](./Submit_Solvent_PCM.ipynb) - Energy calculation with solvent (via PCM solvation).
-
-[Submit_go_constrained.ipynb](./Submit_go_constrained.ipynb) - a constrained geometry optimization.
-
-[Submit_go_transition_state.ipynb](./Submit_go_transition_state.ipynb) - a transition state optimization.
-
-These examples show the general structure of the input and can be easily adjusted using the documented parameters (see [docs](../docs)). 
- 
-## More Advanced Workflow  
-
-[Submit_Heat_of_Formation.ipynb](./Submit_Heat_of_Formation.ipynb) - shows a more involved workflow to compute the heat of formation, that also uses a complete basis set extrapolation. 
-
-## Properties 
-If one uses 'requireWaveFunction': True' in the Accelerated DFT input, then the orbitals, energies and MO coefficients will be written into the QCSchema formatted output.
+# Properties 
+Accelerated DFT produces QCSchema formatted output. Energies (total energies, repulsions energies etc) and useful system information is output into the QCSchema json file, while orbitals (MO coefficients and basis information) are output to a QCSchema compliant hdf5 file.
 These, as well as the molecule information (and the hessian, if computed) can be read into PySCF, in order to use additional functionality and to compute properties, such as Mulliken population analysis, frequency calculations and thermochemistry.    
 
-In order to use the scripts below, a conda environment must first be created.  `conda env create --file env_properties.yaml` will create the environment 'madft_properties', which can be activated using `conda activate madft_properties`.
+In order to use the scripts below, a conda environment must first be created.  `conda env create --file env_properties.yaml` will create the environment 'adft_properties', which can be activated using `conda activate adft_properties`.
 
 This directory contains example scripts for loading information into PySCF and computing a range of properties. For example:
  
