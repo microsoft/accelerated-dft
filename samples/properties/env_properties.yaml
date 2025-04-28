@@ -1,4 +1,4 @@
-name: madft_properties
+name: adft_properties
 channels:
   - pyscf
   - conda-forge
