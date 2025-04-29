@@ -9,6 +9,6 @@ dependencies:
   - nglview =3.0.6
   - jupyterlab_widgets =1.1.2
   - jinja2
-  - pip install qcelemental =0.29.0
+  - pip qcelemental =0.29.0
   - pip:
     - git+https://github.com/pyscf/properties@master
