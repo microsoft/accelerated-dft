@@ -1,5 +1,6 @@
 import json
 import numpy as np
+import sys
 
 def load_qcschema_json( file_name ):
     # load qcschema output json file
@@ -112,7 +113,12 @@ def load_qcschema_mol_scf(qcschema_dict,save_chk=False,chkfile="output.chk",to_A
     
     # Accelerated DFT service return scf_occupations_a only for R, so occ is 1 or 0.
     # Need to double if RHF/RKS/ROHF
-    method = qcschema_dict["keywords"]["scf"]["method"]
+    hf_only = qcschema_dict["model"]["method"] == 'hf'
+    unrestricted = qcschema_dict["keywords"]["unrestricted"]
+    if hf_only:
+        method = 'uhf' if unrestricted else 'rhf'
+    else:
+        method = 'uks' if unrestricted else 'rks'
     if(method == 'rks' or method == 'roks' or method == 'rhf' or method == 'rohf'):
         OccFactor = 2.0
         have_beta = False
@@ -122,11 +128,14 @@ def load_qcschema_mol_scf(qcschema_dict,save_chk=False,chkfile="output.chk",to_A
     elif(method == 'gks' or method == 'ghf'):
         OccFactor = 1.0
         have_beta = False
-
+    
     # Need to reshape MO coefficients for PySCF shape.
     # NOTE: assumes NMO=NAO which isn't the case if linear dependencies etc. 
-    nmo = qcschema_dict["properties"]["calcinfo_nbasis"]
-    nao = nmo
+    nao = qcschema_dict["properties"]["calcinfo_nbasis"]
+    nmo = qcschema_dict["properties"]["calcinfo_nmo"]
+    if nao != nmo:
+        print("Warning: nao and nmo are not the same")
+        #sys.exit(1)  # Exit the script with a non-zero status to indicate an error
 
     ## chkfile info ##
     # Get the 4 things that PySCF chkfile wants
@@ -162,7 +171,7 @@ def load_qcschema_mol_scf(qcschema_dict,save_chk=False,chkfile="output.chk",to_A
     PySCF_basis = str( qcschema_dict["model"]["basis"] )
 
     # Cartesian/Pure basis
-    PySCF_cart = bool( qcschema_dict["keywords"]["basisSet"]["cartesian"] )
+    PySCF_cart = bool( qcschema_dict["keywords"]["cartesian_basis"] ) #changed from ["basisSet"]["cartesian"]
 
     # Get molecular structure.
     # QCSchema has separate atom symbols and coordinates
@@ -194,13 +203,20 @@ def recreate_scf_obj(qcschema_dict,save_chk=False,chkfile=""):
     mol.build()
 
     # Create DFT (or HF) object
-    method =  qcschema_dict["keywords"]["scf"]["method"]
+    # no longer exists method =  qcschema_dict["keywords"]["scf"]["method"]
+    hf_only = qcschema_dict["model"]["method"] == 'hf'
+    unrestricted = qcschema_dict["keywords"]["unrestricted"]
+    if hf_only:
+        method = 'uhf' if unrestricted else 'rhf'
+    else:
+        method = 'uks' if unrestricted else 'rks'
+
     if(method =='rks'):
         ks = pyscf.dft.RKS(mol)
     elif(method =='uks'):
         ks = pyscf.dft.UKS(mol)
     elif(method =='rhf'):
-        ks = pyscf.hf.RKS(mol)
+        ks = pyscf.hf.RHF(mol)
     elif(method =='uhf'):
         ks = pyscf.hf.UHF(mol)
     else:
@@ -209,8 +225,8 @@ def recreate_scf_obj(qcschema_dict,save_chk=False,chkfile=""):
 
     #temp set functional...could get it from the json
     if(method == 'rks' or method == 'uks'):
-        functional = qcschema_dict["keywords"]["xcFunctional"]["name"]
-        #functional = "b3lyp"
+        #functional = qcschema_dict["keywords"]["xcFunctional"]["name"]
+        functional = qcschema_dict["model"]["method"]
         ks.xc = functional
 
     # Load 4 key pieces of info we got from json into DFT object

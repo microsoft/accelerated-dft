@@ -1,0 +1,14 @@
+name: adft_properties
+channels:
+  - pyscf
+  - conda-forge
+  - anaconda
+dependencies:
+  - python =3.11
+  - pyscf = 2.4
+  - nglview =3.0.6
+  - jupyterlab_widgets =1.1.2
+  - jinja2
+  - qcelemental =0.29.0
+  - pip:
+    - git+https://github.com/pyscf/properties@master
