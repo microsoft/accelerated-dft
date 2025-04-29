@@ -13,8 +13,6 @@ This repository contains benchmarking data and sample inputs for Accelerated DFT
   - single point energy example input [spe.ipynb](./samples/bomd.ipynb)
   - single point force example input [spf.ipynb](./samples/bomd.ipynb)
   - geometry optimization example input [go.ipynb](./samples/bomd.ipynb)
-  - full Hessian example input [fh.ipynb](./samples/bomd.ipynb)
-  - Born-Oppenheimer molecular dynamics example input [bomd.ipynb](./samples/bomd.ipynb)
 
 The samples included in this project are for reference only. You need an active Accelerated DFT service (which supplies you the access key) to run the samples. 
 
