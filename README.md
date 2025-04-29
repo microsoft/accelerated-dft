@@ -10,9 +10,10 @@ This repository contains benchmarking data and sample inputs for Accelerated DFT
   - Accelerated-DFT output files for the test set using both M06-2X and wB97x functionals  (m062x_results.tar.gz , wb97x_results.tar.gz)
 
 - [samples](./samples)
-  - single point energy example input [spe.ipynb](./samples/bomd.ipynb)
-  - single point force example input [spf.ipynb](./samples/bomd.ipynb)
-  - geometry optimization example input [go.ipynb](./samples/bomd.ipynb)
+  - single point energy example input [spe.ipynb](./samples/spe.ipynb)
+  - single point force example input [spf.ipynb](./samples/spf.ipynb)
+  - geometry optimization example input [go.ipynb](./samples/go.ipynb)
+  - example of how to build QCSchema inputs for Accelerated-DFT [build_example.ipynb](./samples/build_example.ipynb)
 
 The samples included in this project are for reference only. You need an active Accelerated DFT service (which supplies you the access key) to run the samples. 
 
