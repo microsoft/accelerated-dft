@@ -10,11 +10,16 @@ import json
 import numpy as np
 from tools.libqcschema import *
 from tools.wavefunction_hdf5_to_qcschema import *
+import argparse
 
 def main():
+    parser = argparse.ArgumentParser(description="Compute MEP from QCSchema and wavefunction files.")
+    parser.add_argument("qcschema_json", help="Path to the QCSchema JSON file.")
+    parser.add_argument("qcwavefunction_h5", help="Path to the wavefunction HDF5 file.")
+    args = parser.parse_args()
 
-    qcschema_json = "examples/c2h4_fh_output.json"
-    qcwavefunction_h5 = "examples/c2h4_fh_output.h5"
+    qcschema_json = args.qcschema_json
+    qcwavefunction_h5 = args.qcwavefunction_h5
 
     # Load Accelerated DFT output json
     qcschema_dict = load_qcschema_json(qcschema_json)

@@ -10,11 +10,16 @@ import json
 import numpy as np
 from tools.libqcschema import *
 from tools.wavefunction_hdf5_to_qcschema import *
+import argparse
 
 def main():
-    chkfile = ""
-    qcschema_json = "examples/aspirin_charged_output.json" 
-    qcwavefunction_h5 = "examples/aspirin_charged_output.h5"
+    parser = argparse.ArgumentParser(description="Compute dipole moment (UKS) from QCSchema and wavefunction files.")
+    parser.add_argument("qcschema_json", help="Path to the QCSchema JSON file.")
+    parser.add_argument("qcwavefunction_h5", help="Path to the wavefunction HDF5 file.")
+    args = parser.parse_args()
+
+    qcschema_json = args.qcschema_json
+    qcwavefunction_h5 = args.qcwavefunction_h5
 
     # Load Accelerated DFT output json
     qcschema_dict = load_qcschema_json(qcschema_json)
